@@ -1,0 +1,2 @@
+stl export: scale factor 30
+unit bases: scale 0.98 + scale 0.97
