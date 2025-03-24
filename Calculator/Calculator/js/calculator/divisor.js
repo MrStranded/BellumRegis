@@ -19,7 +19,7 @@ function getExpectedDamage(dice, roll) {
     if (combinations > 0) {
       if (roll.armor <= 0) {
         sumDamage += (attack >= roll.armor ? combinations : 0);
-      } else {
+      } else if (attack > 0) {
         sumDamage += combinations * Math.floor(attack / roll.armor);
       }
     }
