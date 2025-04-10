@@ -706,6 +706,26 @@ let slowData = {
       "bonus": {
         "health": 1
       }
+    },
+    {
+      "name": "elite axe thrower",
+      "target": {
+        "name": "axe thrower"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [2, null, null, null],
+        "armor": [1, 1, 1, 0]
+      }
+    },
+    {
+      "name": "coursers",
+      "target": {
+        "tags": [["cavalry"]]
+      },
+      "bonus": {
+        "armor": [0, 2, 0, 0]
+      }
     }
   ]
 }
