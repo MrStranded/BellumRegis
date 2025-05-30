@@ -16,6 +16,22 @@ function getDamages(attacker, defender, techs) {
   return damages;
 }
 
+function getHits(attack, attacker, techs) {
+  let hits = attack.hits;
+
+  for (let tech of techs) {
+    if (tech.attacker) {
+      if (tech.bonus.hits) {
+        if (techApplies(tech, attacker)) {
+          hits += tech.bonus.hits;
+        }
+      }
+    }
+  }
+
+  return hits;
+}
+
 function getDamage(attack, attacker, defender, techs) {
   let damage = 0;
   let roll = undefined;
@@ -24,7 +40,7 @@ function getDamage(attack, attacker, defender, techs) {
     if (bonusApplies(bonus, defender)) {
       let modifier = addBonuses(bonus.bonus, getAttackBonus(attack, attacker, defender, techs));
       let requiredRoll = getRequiredRoll(modifier, defender, techs);
-      let expectedDamage = getExpectedDamage(attack.hits, requiredRoll);
+      let expectedDamage = getExpectedDamage(getHits(attack, attacker, techs), requiredRoll);
 
       if (expectedDamage > damage) {
         damage = expectedDamage;
@@ -92,11 +108,13 @@ function getRequiredRoll(modifier, defender, techs) {
     }
   }
 
-  return {
+  let requiredRoll = {
     roll: lowestRoll,
     armor: lowestArmor,
     modifier: bestModifier
   };
+
+  return requiredRoll;
 }
 
 function getExpectedNumberOfTurnsToKill(damages, defender, techs) {

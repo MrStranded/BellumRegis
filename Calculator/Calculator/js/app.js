@@ -40,12 +40,39 @@ function render() {
   createTable(slowData, "Slow");
 }
 
+function createTechs(data) {
+  let techs = document.createElement("div");
+  techs.id = "techs";
+  techs.style.display = "flex";
+
+  let groupedTechs = Object.groupBy(data.techs, ({type}) => type);
+
+  for (let type in groupedTechs) {
+    let group = document.createElement("div");
+    group.style.display = "flex";
+    group.style.flexDirection = "column";
+
+    let title = document.createElement("div");
+    title.textContent = type;
+    group.append(title);
+
+    for (let tech of groupedTechs[type]) {
+      group.append(createTech(tech));
+    }
+
+    techs.append(group);
+  }
+
+  return techs;
+}
+
 function createTable(data, title) {
   let titleElement = document.createElement("h1");
   titleElement.textContent = title;
   $("#content").append(titleElement);
 
   let table = document.createElement("table");
+  table.id = "table";
 
   table.append(createHeader(data));
 
@@ -55,13 +82,7 @@ function createTable(data, title) {
 
   $("#content").append(table);
 
-  let techs = document.createElement("div");
-  techs.style.display = "flex";
-  techs.style.flexDirection = "column";
-
-  for (let tech of data.techs) {
-    techs.append(createTech(tech));
-  }
+  let techs = createTechs(data);
 
   $("#content").append(techs);
 }

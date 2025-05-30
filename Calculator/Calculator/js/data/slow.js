@@ -175,7 +175,7 @@ let slowData = {
       "name": "scout",
       "tags": ["cavalry", "melee"],
       "health": 2,
-      "armor": [3, 5, 8, 2],
+      "armor": [3, 6, 8, 2],
       "attacks": [
         {
           "hits": 1,
@@ -196,7 +196,7 @@ let slowData = {
       "name": "knight",
       "tags": ["cavalry", "melee"],
       "health": 3,
-      "armor": [4, 5, 8, 0],
+      "armor": [4, 6, 8, 0],
       "attacks": [
         {
           "hits": 1,
@@ -365,7 +365,7 @@ let slowData = {
       "armor": [5, 3, 5, 0],
       "attacks": [
         {
-          "hits": 5,
+          "hits": 3,
           "actionpoints": 3,
           "bonuses": [
             {
@@ -580,7 +580,7 @@ let slowData = {
           "actionpoints": 1,
           "bonuses": [
             {
-              "bonus": [null, null, 3, null]
+              "bonus": [null, null, 2, null]
             }
           ]
         }
@@ -682,6 +682,7 @@ let slowData = {
     },
     {
       "name": "gambesons",
+      "type": "blacksmith",
       "target": {
         "tags": [["infantry"]]
       },
@@ -691,6 +692,7 @@ let slowData = {
     },
     {
       "name": "forging",
+      "type": "blacksmith",
       "target": {
         "tags": [["melee"]]
       },
@@ -699,12 +701,141 @@ let slowData = {
       }
     },
     {
+      "name": "loom",
+      "type": "market",
+      "target": {
+        "name": "villager"
+      },
+      "bonus": {
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
       "name": "power of the people",
+      "type": "market",
       "target": {
         "name": "villager"
       },
       "bonus": {
         "health": 1
+      }
+    },
+    {
+      "name": "pikeman",
+      "type": "barracks",
+      "target": {
+        "name": "spearman"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [1, null, null, null],
+        "armor": [1, 1, 1, 0]
+      }
+    },
+    {
+      "name": "halberdier",
+      "type": "barracks",
+      "target": {
+        "name": "spearman"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [2, null, null, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "longswordsman",
+      "type": "barracks",
+      "target": {
+        "name": "swordsman"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [1, null, null, null],
+        "armor": [1, 1, 1, 0]
+      }
+    },
+    {
+      "name": "two-handed swordsman",
+      "type": "barracks",
+      "target": {
+        "name": "swordsman"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [3, null, null, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "light cavalry",
+      "type": "stable",
+      "target": {
+        "name": "scout"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [1, null, null, null],
+        "armor": [1, 1, 1, 0]
+      }
+    },
+    {
+      "name": "hussar",
+      "type": "stable",
+      "target": {
+        "name": "scout"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [3, null, null, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "paladin",
+      "type": "stable",
+      "target": {
+        "name": "knight"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [2, null, null, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "cavalry marksman",
+      "type": "stable",
+      "target": {
+        "name": "cavalry archer"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [null, 1, null, null],
+        "armor": [1, 1, 1, 0]
+      }
+    },
+    {
+      "name": "explosion ship",
+      "type": "dock",
+      "target": {
+        "name": "explosion raft"
+      },
+      "bonus": {
+        "hits": 1,
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "bronze cannons",
+      "type": "dock",
+      "target": {
+        "name": "cannon galleon"
+      },
+      "bonus": {
+        "attack": [null, null, 2, null],
+        "armor": [1, 1, 1, 0]
       }
     },
     {
@@ -725,6 +856,30 @@ let slowData = {
       },
       "bonus": {
         "armor": [0, 2, 0, 0]
+      }
+    },
+    {
+      "name": "elite devout levy",
+      "type": "swiss",
+      "target": {
+        "name": "devout levy"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [null, null, 3, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "elite longbowman",
+      "type": "england",
+      "target": {
+        "name": "longbowman"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [null, 2, 0, null],
+        "armor": [1, 1, 1, 0]
       }
     }
   ]
