@@ -172,6 +172,23 @@ let slowData = {
       ]
     },
     {
+      "name": "musketeer",
+      "tags": ["infantry", "ranged"],
+      "health": 3,
+      "armor": [5, 5, 8, 0],
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 1,
+          "bonuses": [
+            {
+              "bonus": [null, 4, null, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "scout",
       "tags": ["cavalry", "melee"],
       "health": 2,
@@ -278,7 +295,7 @@ let slowData = {
       "name": "trebuchet",
       "tags": ["siege", "ranged_siege"],
       "health": 2,
-      "armor": [3, 6, 4, 0],
+      "armor": [4, 7, 4, 0],
       "actions": 1,
       "attacks": [
         {
@@ -286,7 +303,7 @@ let slowData = {
           "actionpoints": 2,
           "bonuses": [
             {
-              "bonus": [null, null, -1, null]
+              "bonus": [null, null, 0, null]
             }
           ]
         },
@@ -301,6 +318,24 @@ let slowData = {
             {
               "target": "wall",
               "bonus": [null, null, 2, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cannon",
+      "tags": ["siege", "ranged_siege", "gullible"],
+      "health": 2,
+      "armor": [5, 6, 6, 0],
+      "actions": 1,
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 1,
+          "bonuses": [
+            {
+              "bonus": [null, null, 3, null]
             }
           ]
         }
@@ -386,15 +421,15 @@ let slowData = {
           "actionpoints": 2,
           "bonuses": [
             {
-              "bonus": [null, null, 0, null]
+              "bonus": [null, null, 2, null]
             },
             {
               "target": "building",
-              "bonus": [null, null, 2, null]
+              "bonus": [null, null, 4, null]
             },
             {
               "target": "wall",
-              "bonus": [null, null, 2, null]
+              "bonus": [null, null, 4, null]
             }
           ]
         }
@@ -435,7 +470,7 @@ let slowData = {
       "name": "tower",
       "tags": ["building", "ranged"],
       "health": 3,
-      "armor": [5, 7, 4, 0],
+      "armor": [5, 7, 5, 0],
       "attacks": [
         {
           "hits": 1,
@@ -460,6 +495,23 @@ let slowData = {
           "bonuses": [
             {
               "bonus": [null, 2, null, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bombard tower",
+      "tags": ["building", "ranged_siege"],
+      "health": 3,
+      "armor": [6, 8, 5, 0],
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 1,
+          "bonuses": [
+            {
+              "bonus": [null, null, 4, null]
             }
           ]
         }
@@ -701,6 +753,26 @@ let slowData = {
       }
     },
     {
+      "name": "bodkin arrow",
+      "type": "blacksmith",
+      "target": {
+        "tags": [["ranged"]]
+      },
+      "bonus": {
+        "attack": [null, 1, null, null]
+      }
+    },
+    {
+      "name": "bracer",
+      "type": "blacksmith",
+      "target": {
+        "tags": [["ranged"]]
+      },
+      "bonus": {
+        "attack": [null, 1, null, null]
+      }
+    },
+    {
       "name": "loom",
       "type": "market",
       "target": {
@@ -718,6 +790,16 @@ let slowData = {
       },
       "bonus": {
         "health": 1
+      }
+    },
+    {
+      "name": "siege engineers",
+      "type": "university",
+      "target": {
+        "tags": [["siege"]]
+      },
+      "bonus": {
+        "attack": [2, 2, 2, null]
       }
     },
     {
@@ -765,6 +847,18 @@ let slowData = {
       "bonus": {
         "health": 1,
         "attack": [3, null, null, null],
+        "armor": [2, 2, 2, 0]
+      }
+    },
+    {
+      "name": "arbalester",
+      "type": "archery range",
+      "target": {
+        "name": "archer"
+      },
+      "bonus": {
+        "health": 1,
+        "attack": [null, 3, null, null],
         "armor": [2, 2, 2, 0]
       }
     },
