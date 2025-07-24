@@ -4,7 +4,7 @@ let slowData = {
       "name": "villager",
       "tags": ["infantry", "economic"],
       "health": 2,
-      "armor": [3, 3, 5, 0],
+      "armor": [4, 4, 5, 0],
       "attacks": [
         {
           "hits": 1,
@@ -717,6 +717,23 @@ let slowData = {
             },
             {
               "target": "cavalry",
+              "bonus": [null, 3, null, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "conquistador",
+      "tags": ["unique", "cavalry", "gunpowder"],
+      "health": 3,
+      "armor": [4, 4, 7, 0],
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 1,
+          "bonuses": [
+            {
               "bonus": [null, 3, null, null]
             }
           ]
