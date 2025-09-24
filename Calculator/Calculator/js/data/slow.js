@@ -4,7 +4,7 @@ let slowData = {
       "name": "villager",
       "tags": ["infantry", "economic"],
       "health": 2,
-      "armor": [4, 4, 5, 0],
+      "armor": [3, 3, 5, 0],
       "attacks": [
         {
           "hits": 1,
@@ -352,14 +352,14 @@ let slowData = {
       "name": "transport ship",
       "tags": ["ship"],
       "health": 3,
-      "armor": [4, 6, 5, 0],
+      "armor": [4, 5, 5, 0],
       "attacks": []
     },
     {
       "name": "galley",
       "tags": ["ship", "ranged_ship"],
       "health": 3,
-      "armor": [4, 6, 5, 0],
+      "armor": [4, 5, 5, 0],
       "attacks": [
         {
           "hits": 1,
@@ -380,7 +380,7 @@ let slowData = {
       "name": "boarding ship",
       "tags": ["ship", "melee"],
       "health": 3,
-      "armor": [4, 7, 5, 0],
+      "armor": [4, 6, 5, 0],
       "attacks": [
         {
           "hits": 1,
@@ -397,7 +397,7 @@ let slowData = {
       "name": "explosion raft",
       "tags": ["ship", "melee"],
       "health": 2,
-      "armor": [5, 3, 5, 0],
+      "armor": [4, 4, 5, 0],
       "attacks": [
         {
           "hits": 3,
@@ -414,7 +414,7 @@ let slowData = {
       "name": "cannon galleon",
       "tags": ["ship", "ranged_ship"],
       "health": 3,
-      "armor": [4, 6, 5, 0],
+      "armor": [4, 5, 5, 0],
       "attacks": [
         {
           "hits": 1,
