@@ -1,0 +1,94 @@
+Bellum Regis Rulebook
+
+
+
+Table Of Contents
+Basic Concepts
+Setup
+Card Anatomy
+- Unit Card
+- Building Card
+- Civilization Card
+- Technology
+Turn Structure
+- Income Phase
+- Hand Limit
+- Action Phase
+Actions
+- Explore
+- Gather
+- Build
+- Recruit
+- Research
+- Move
+- Attack
+- Convert
+- Progress
+- Trade & Sling
+Artifacts
+- Treasure
+- Relic
+Blessings
+Animals
+
+
+
+Table Of Contents
+
+
+
+Basic Concepts
+
+The game is played in turns. Players in the same team can take their turns simultaneously.
+A team (or single player) immediately wins, when it reaches the corresponding point limit.
+
+Units and buildings are called pieces. Most pieces have two representations. One on the map as a figurine and one as a card.
+The figurine on the map shows the position of the piece.
+The card is placed in front of the player that controls the piece. The card is used to show the state of the piece, which is mainly the amount of damage it has taken.
+It also shows the effects and possible actions that the piece can perform.
+
+
+
+Setup
+
+
+
+Card Anatomy
+
+
+
+Turn Structure
+
+All players in the same team can take their turns simultaneously.
+During the first few turns, it is recommended to take turns one after the other until the players feel more confident.
+Each player goes through these steps independantly:
+
+1) Income phase
+
+In this phase, players perform all the (giving hand) effects.
+In the beginning, this will only be the action point income from the current age and the towncenter, but there can be more income effects, such as those of production buildings, technologies or civilization abilities.
+Gather actions from production buildings are performed similarly to gather actions of villagers: Roll for depletion and apply economic technologies. Some production buildings can gather in a certain range.
+
+2) Hand limit
+
+During this phase, the number of blessing cards has to be reduced to 5. Each church adds 3 to the hand limit.
+Before discarding blessing cards, players may use blessing cards, if applicable.
+
+3) Action phase
+
+This phase contains the bulk of the game.
+The number of blue actions is limited by the action points you gained during phase 1. The yellow actions are not limited, but each yellow action can only be performed once.
+If there are no more possible actions, or a player does not want to perform any more actions, the turn ends. Remaining action points are discarded and cannot be saved for the next turn.
+
+
+
+Actions
+
+Explore
+
+The map is built by adding tiles through the explore action.
+When performing an explore action, choose any of your pieces to explore with. Going from this piece, select an unexplored tile within exploration range.
+Determine which type this tile belongs to. Reveal a map card and construct the tile of the corresponding type. You may now place this tile rotated according to your decision.
+Exception: River tiles (R) have to be rotated in a way, that its water connects to existing water, if possible.
+
+If the exploration range is not explicitly defined, it is the greater value of the pieces walking or shooting range.

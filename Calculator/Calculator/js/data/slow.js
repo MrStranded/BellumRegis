@@ -5,6 +5,7 @@ let slowData = {
       "tags": ["infantry", "economic"],
       "health": 2,
       "armor": [3, 3, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
@@ -24,40 +25,42 @@ let slowData = {
     {
       "name": "bush",
       "tags": ["resource"],
-      "health": 2,
-      "armor": [5, 9, 4, 0],
+      "health": 1,
+      "armor": [5, 9, 5, 0],
       "attacks": []
     },
     {
       "name": "fish",
       "tags": ["resource"],
       "health": 1,
-      "armor": [4, 9, 4, 0],
+      "armor": [5, 9, 5, 0],
       "attacks": []
     },
     {
       "name": "tree",
       "tags": ["resource"],
-      "health": 2,
-      "armor": [4, 9, 4, 0],
+      "health": 1,
+      "armor": [5, 9, 5, 0],
       "attacks": []
     },
     {
       "name": "mineral",
       "tags": ["resource"],
-      "health": 4,
-      "armor": [10, 10, 7, 0],
+      "health": 3,
+      "armor": [9, 10, 8, 0],
       "attacks": []
     },
     {
       "name": "priest",
       "tags": ["infantry", "priest"],
       "health": 2,
-      "armor": [4, 4, 5, 0],
+      "armor": [4, 4, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "range": 3,
           "bonuses": [
             {
               "bonus": [null, null, null, -7]
@@ -68,36 +71,20 @@ let slowData = {
     },
     {
       "name": "spearman",
-      "tags": ["infantry", "melee", "pike"],
+      "tags": ["infantry", "slash", "pike"],
       "health": 2,
-      "armor": [5, 3, 6, 0],
+      "armor": [5, 4, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
           "actionpoints": 1,
           "bonuses": [
             {
-              "bonus": [-1, null, null, null]
+              "bonus": [-3, null, null, null]
             },
             {
               "target": "cavalry",
-              "bonus": [3, null, null, null]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "swordsman",
-      "tags": ["infantry", "melee"],
-      "health": 2,
-      "armor": [5, 4, 6, 0],
-      "attacks": [
-        {
-          "hits": 1,
-          "actionpoints": 1,
-          "bonuses": [
-            {
               "bonus": [2, null, null, null]
             }
           ]
@@ -105,29 +92,53 @@ let slowData = {
       ]
     },
     {
-      "name": "javelin thrower",
-      "tags": ["infantry", "ranged"],
+      "name": "swordsman",
+      "tags": ["infantry", "slash"],
       "health": 2,
-      "armor": [3, 6, 6, 0],
+      "armor": [4, 5, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
           "actionpoints": 1,
           "bonuses": [
             {
-              "bonus": [null, -2, null, null]
+              "bonus": [1, null, null, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "javelin thrower",
+      "tags": ["infantry", "pierce", "ranged"],
+      "health": 2,
+      "armor": [3, 6, 5, 0],
+      "steps": 2,
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 1,
+          "range": 2,
+          "bonuses": [
+            {
+              "bonus": [null, -3, null, null]
             },
             {
               "target": ["infantry", "ranged"],
-              "bonus": [null, 4, null, null]
+              "bonus": [null, 2, null, null]
             },
             {
               "target": ["cavalry", "ranged"],
-              "bonus": [null, 4, null, null]
+              "bonus": [null, 2, null, null]
             },
             {
-              "target": "pike",
-              "bonus": [null, 2, null, null]
+              "target": ["infantry", "gunpowder"],
+              "bonus": [null, 1, null, null]
+            },
+            {
+              "target": ["cavalry", "gunpowder"],
+              "bonus": [null, 1, null, null]
             }
           ]
         }
@@ -135,9 +146,10 @@ let slowData = {
     },
     {
       "name": "archer",
-      "tags": ["infantry", "ranged"],
+      "tags": ["infantry", "pierce", "ranged"],
       "health": 2,
-      "armor": [3, 5, 6, 0],
+      "armor": [4, 5, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
@@ -145,10 +157,6 @@ let slowData = {
           "bonuses": [
             {
               "bonus": [null, 0, null, null]
-            },
-            {
-              "target": "infantry",
-              "bonus": [null, 2, null, null]
             }
           ]
         }
@@ -156,9 +164,10 @@ let slowData = {
     },
     {
       "name": "cavalry archer",
-      "tags": ["cavalry", "ranged"],
+      "tags": ["cavalry", "pierce", "ranged"],
       "health": 3,
-      "armor": [3, 4, 7, 0],
+      "armor": [4, 5, 7, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
@@ -173,13 +182,16 @@ let slowData = {
     },
     {
       "name": "musketeer",
-      "tags": ["infantry", "ranged"],
+      "tags": ["infantry", "pierce", "gunpowder"],
       "health": 3,
-      "armor": [5, 5, 8, 0],
+      "armor": [5, 5, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
           "actionpoints": 1,
+          "range": 4,
+          "splash": true,
           "bonuses": [
             {
               "bonus": [null, 4, null, null]
@@ -190,20 +202,29 @@ let slowData = {
     },
     {
       "name": "scout",
-      "tags": ["cavalry", "melee"],
+      "tags": ["cavalry", "slash"],
       "health": 2,
-      "armor": [3, 6, 8, 2],
+      "armor": [4, 6, 8, 2],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
-              "bonus": [0, null, null, null]
+              "bonus": [-2, null, null, null]
             },
             {
               "target": "priest",
-              "bonus": [3, null, null, null]
+              "bonus": [0, null, null, null]
+            },
+            {
+              "target": "economic",
+              "bonus": [0, null, null, null]
+            },
+            {
+              "target": "production",
+              "bonus": [0, null, null, null]
             }
           ]
         }
@@ -211,9 +232,10 @@ let slowData = {
     },
     {
       "name": "knight",
-      "tags": ["cavalry", "melee"],
+      "tags": ["cavalry", "slash"],
       "health": 3,
       "armor": [4, 6, 8, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
@@ -228,30 +250,25 @@ let slowData = {
     },
     {
       "name": "battering ram",
-      "tags": ["siege"],
+      "tags": ["siege", "garrison", "blunt"],
       "health": 3,
-      "armor": [3, 9, 4, 0],
+      "armor": [4, 9, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 2,
+          "actionpoints": 1,
           "bonuses": [
             {
-              "bonus": [null, null, 0, null]
-            }
-          ]
-        },
-        {
-          "hits": 2,
-          "actionpoints": 2,
-          "bonuses": [
-            {
-              "target": "building",
               "bonus": [null, null, 0, null]
             },
             {
+              "target": "building",
+              "bonus": [null, null, 4, null]
+            },
+            {
               "target": "wall",
-              "bonus": [null, null, 0, null]
+              "bonus": [null, null, 4, null]
             }
           ]
         }
@@ -259,13 +276,15 @@ let slowData = {
     },
     {
       "name": "scorpion",
-      "tags": ["siege", "ranged_siege", "gullible"],
+      "tags": ["siege", "ranged_siege", "gullible", "pierce"],
       "health": 2,
-      "armor": [3, 5, 4, 0],
+      "armor": [4, 6, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 2,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "splash": true,
           "bonuses": [
             {
               "bonus": [null, 0, null, null]
@@ -276,13 +295,15 @@ let slowData = {
     },
     {
       "name": "catapult",
-      "tags": ["siege", "ranged_siege", "gullible"],
+      "tags": ["siege", "ranged_siege", "gullible", "blunt"],
       "health": 2,
-      "armor": [3, 5, 4, 0],
+      "armor": [4, 6, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 2,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "splash": true,
           "bonuses": [
             {
               "bonus": [null, null, 0, null]
@@ -295,12 +316,13 @@ let slowData = {
       "name": "trebuchet",
       "tags": ["siege", "ranged_siege"],
       "health": 2,
-      "armor": [4, 7, 4, 0],
-      "actions": 1,
+      "armor": [4, 8, 5, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "range": 7,
           "bonuses": [
             {
               "bonus": [null, null, 0, null]
@@ -309,15 +331,16 @@ let slowData = {
         },
         {
           "hits": 2,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "range": 7,
           "bonuses": [
             {
               "target": "building",
-              "bonus": [null, null, 2, null]
+              "bonus": [null, null, 0, null]
             },
             {
               "target": "wall",
-              "bonus": [null, null, 2, null]
+              "bonus": [null, null, 0, null]
             }
           ]
         }
@@ -325,17 +348,18 @@ let slowData = {
     },
     {
       "name": "cannon",
-      "tags": ["siege", "ranged_siege", "gullible"],
+      "tags": ["siege", "ranged_siege", "gullible", "blunt", "gunpowder"],
       "health": 2,
-      "armor": [5, 6, 6, 0],
-      "actions": 1,
+      "armor": [6, 8, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
           "actionpoints": 1,
+          "splash": true,
           "bonuses": [
             {
-              "bonus": [null, null, 3, null]
+              "bonus": [null, null, 4, null]
             }
           ]
         }
@@ -345,32 +369,36 @@ let slowData = {
       "name": "fishing ship",
       "tags": ["ship"],
       "health": 2,
-      "armor": [3, 3, 6, 0],
+      "armor": [4, 4, 6, 0],
+      "steps": 2,
       "attacks": []
     },
     {
       "name": "transport ship",
-      "tags": ["ship"],
-      "health": 3,
-      "armor": [4, 5, 5, 0],
+      "tags": ["ship", "garrison"],
+      "health": 2,
+      "armor": [4, 6, 5, 0],
+      "steps": 4,
+      "garrison": {
+        "space": 3,
+        "occupantTags": ["infantry", "cavalry", "siege"]
+      },
       "attacks": []
     },
     {
       "name": "galley",
-      "tags": ["ship", "ranged_ship"],
-      "health": 3,
-      "armor": [4, 5, 5, 0],
+      "tags": ["ship", "ranged", "pierce"],
+      "health": 2,
+      "armor": [4, 6, 5, 0],
+      "steps": 3,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 2,
           "bonuses": [
             {
               "bonus": [null, 0, null, null]
-            },
-            {
-              "target": "ship",
-              "bonus": [null, 2, null, null]
             }
           ]
         }
@@ -378,16 +406,17 @@ let slowData = {
     },
     {
       "name": "boarding ship",
-      "tags": ["ship", "melee"],
-      "health": 3,
+      "tags": ["ship", "slash"],
+      "health": 2,
       "armor": [4, 6, 5, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
-              "bonus": [2, null, null, null]
+              "bonus": [0, null, null, null]
             }
           ]
         }
@@ -395,13 +424,16 @@ let slowData = {
     },
     {
       "name": "explosion raft",
-      "tags": ["ship", "melee"],
+      "tags": ["ship"],
       "health": 2,
-      "armor": [4, 4, 5, 0],
+      "armor": [6, 4, 5, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 3,
-          "actionpoints": 3,
+          "actionpoints": 1,
+          "splash": true,
+          "splashRange": 2,
           "bonuses": [
             {
               "bonus": [0, null, null, null]
@@ -412,13 +444,15 @@ let slowData = {
     },
     {
       "name": "cannon galleon",
-      "tags": ["ship", "ranged_ship"],
+      "tags": ["ship", "ranged_siege", "blunt", "gunpowder"],
       "health": 3,
-      "armor": [4, 5, 5, 0],
+      "armor": [4, 6, 5, 0],
+      "steps": 3,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 2,
+          "actionpoints": 1,
+          "range": 5,
           "bonuses": [
             {
               "bonus": [null, null, 2, null]
@@ -437,44 +471,13 @@ let slowData = {
     },
     {
       "name": "towncenter",
-      "tags": ["building", "ranged"],
+      "tags": ["building", "ranged", "pierce", "garrison"],
       "health": 4,
-      "armor": [7, 9, 5, 3],
+      "armor": [6, 8, 5, 3],
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
-          "bonuses": [
-            {
-              "bonus": [null, 1, null, null]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "house",
-      "tags": ["building"],
-      "health": 2,
-      "armor": [4, 5, 4, 0],
-      "attacks": []
-    },
-    {
-      "name": "generic building",
-      "tags": ["building"],
-      "health": 3,
-      "armor": [6, 8, 4, 0],
-      "attacks": []
-    },
-    {
-      "name": "tower",
-      "tags": ["building", "ranged"],
-      "health": 3,
-      "armor": [5, 7, 5, 0],
-      "attacks": [
-        {
-          "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
               "bonus": [null, 0, null, null]
@@ -484,17 +487,63 @@ let slowData = {
       ]
     },
     {
-      "name": "garrisoned tower",
-      "tags": ["building", "ranged"],
+      "name": "house",
+      "tags": ["building"],
+      "health": 1,
+      "armor": [9, 10, 8, 0],
+      "attacks": []
+    },
+    {
+      "name": "generic building",
+      "tags": ["building"],
       "health": 3,
-      "armor": [5, 7, 4, 0],
+      "armor": [6, 8, 5, 0],
+      "attacks": []
+    },
+    {
+      "name": "tower",
+      "tags": ["building", "ranged", "pierce", "garrison"],
+      "health": 2,
+      "armor": [6, 8, 5, 0],
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 3,
           "bonuses": [
             {
-              "bonus": [null, 2, null, null]
+              "bonus": [null, -1, null, null]
+            }
+          ]
+        },
+        {
+          "hits": 1,
+          "requirements": [ // requirements as-of-yet not implemented
+            {"key": "garrissoned", "atleast": 1}
+          ],
+          "actionpoints": 0,
+          "range": 3,
+          "bonuses": [
+            {
+              "bonus": [null, 1, null, null]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "garrisoned tower",
+      "tags": ["building", "ranged", "pierce", "garrison"],
+      "health": 2,
+      "armor": [6, 8, 5, 0],
+      "attacks": [
+        {
+          "hits": 1,
+          "actionpoints": 0,
+          "range": 3,
+          "bonuses": [
+            {
+              "bonus": [null, 1, null, null]
             }
           ]
         }
@@ -502,13 +551,29 @@ let slowData = {
     },
     {
       "name": "bombard tower",
-      "tags": ["building", "ranged_siege"],
-      "health": 3,
+      "tags": ["building", "ranged_siege", "blunt", "gunpowder", "garrison"],
+      "health": 4,
       "armor": [6, 8, 5, 0],
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 5,
+          "splash": true,
+          "bonuses": [
+            {
+              "bonus": [null, null, 2, null]
+            }
+          ]
+        },
+        {
+          "hits": 1,
+          "requirements": [ // requirements as-of-yet not implemented
+            {"key": "garrissoned", "atleast": 1}
+          ],
+          "actionpoints": 0,
+          "range": 5,
+          "splash": true,
           "bonuses": [
             {
               "bonus": [null, null, 4, null]
@@ -519,16 +584,17 @@ let slowData = {
     },
     {
       "name": "castle",
-      "tags": ["building", "ranged"],
-      "health": 6,
-      "armor": [6, 8, 4, 0],
+      "tags": ["building", "ranged", "age2", "age2", "pierce", "garrison"],
+      "health": 5,
+      "armor": [6, 8, 5, 0],
       "attacks": [
         {
           "hits": 2,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 3,
           "bonuses": [
             {
-              "bonus": [null, 1, null, null]
+              "bonus": [null, 0, null, null]
             }
           ]
         }
@@ -538,21 +604,21 @@ let slowData = {
       "name": "palisade wall",
       "tags": ["wall"],
       "health": 1,
-      "armor": [6, 8, 4, 0],
+      "armor": [8, 9, 7, 0],
       "attacks": []
     },
     {
       "name": "stone wall",
       "tags": ["wall"],
       "health": 1,
-      "armor": [8, 10, 5, 0],
+      "armor": [9, 10, 8, 0],
       "attacks": []
     },
     {
       "name": "outpost",
-      "tags": [],
+      "tags": ["wall"],
       "health": 1,
-      "armor": [4, 6, 3, 0],
+      "armor": [7, 8, 6, 0],
       "attacks": []
     },
     {
@@ -564,13 +630,15 @@ let slowData = {
     },
     {
       "name": "longbowman",
-      "tags": ["unique", "infantry", "ranged"],
-      "health": 2,
-      "armor": [4, 5, 6, 0],
+      "tags": ["unique", "infantry", "ranged", "pierce"],
+      "health": 3,
+      "armor": [4, 4, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 3,
           "bonuses": [
             {
               "bonus": [null, 1, null, null]
@@ -581,20 +649,21 @@ let slowData = {
     },
     {
       "name": "crossbowman",
-      "tags": ["unique", "infantry", "ranged"],
-      "health": 2,
-      "armor": [6, 4, 6, 0],
+      "tags": ["unique", "infantry", "ranged", "pierce"],
+      "health": 3,
+      "armor": [5, 3, 6, 0],
+      "steps": 2,
       "attacks": [
         {
-          "hits": 2,
-          "actionpoints": 2,
+          "hits": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
-              "bonus": [null, -1, null, null]
+              "bonus": [null, 0, null, null]
             },
             {
               "target": "cavalry",
-              "bonus": [null, 2, null, null]
+              "bonus": [null, 4, null, null]
             }
           ]
         }
@@ -602,13 +671,14 @@ let slowData = {
     },
     {
       "name": "kings guard",
-      "tags": ["unique", "cavalry", "melee"],
+      "tags": ["unique", "cavalry", "slash"],
       "health": 4,
       "armor": [5, 3, 8, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
               "bonus": [1, null, null, null]
@@ -623,16 +693,17 @@ let slowData = {
     },
     {
       "name": "devout levy",
-      "tags": ["unique", "infantry", "melee"],
-      "health": 2,
-      "armor": [3, 6, 6, 3],
+      "tags": ["unique", "infantry", "slash", "economic"],
+      "health": 3,
+      "armor": [4, 6, 6, 3],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
-              "bonus": [null, null, 2, null]
+              "bonus": [null, null, 3, null]
             }
           ]
         }
@@ -640,13 +711,15 @@ let slowData = {
     },
     {
       "name": "axe thrower",
-      "tags": ["unique", "infantry", "melee"],
-      "health": 2,
-      "armor": [3, 5, 6, 0],
+      "tags": ["unique", "infantry", "slash"],
+      "health": 3,
+      "armor": [4, 4, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 2,
           "bonuses": [
             {
               "bonus": [2, null, null, null]
@@ -657,13 +730,14 @@ let slowData = {
     },
     {
       "name": "reisläufer",
-      "tags": ["unique", "infantry", "melee", "pike"],
-      "health": 2,
-      "armor": [4, 5, 6, 0],
+      "tags": ["unique", "infantry", "slash"],
+      "health": 3,
+      "armor": [5, 5, 6, 0],
+      "steps": 2,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
               "bonus": [1, null, null, null]
@@ -678,25 +752,29 @@ let slowData = {
     },
     {
       "name": "mercenary",
-      "tags": ["unique", "cavalry", "melee"],
+      "tags": ["unique", "cavalry", "slash"],
       "health": 3,
       "armor": [4, 4, 8, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
           "actionpoints": 0,
           "bonuses": [
             {
-              "bonus": [2, null, null, null]
+              "bonus": [1, null, null, null]
             }
           ]
         },
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "cost": {
+            "gold": 1
+          },
           "bonuses": [
             {
-              "bonus": [1, null, null, null]
+              "bonus": [3, null, null, null]
             }
           ]
         }
@@ -704,13 +782,14 @@ let slowData = {
     },
     {
       "name": "guerrilla warrior",
-      "tags": ["unique", "infantry", "melee"],
-      "health": 2,
+      "tags": ["unique", "infantry", "slash"],
+      "health": 3,
       "armor": [3, 3, 5, 0],
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
+          "range": 2,
           "bonuses": [
             {
               "bonus": [null, 1, null, null]
@@ -728,10 +807,11 @@ let slowData = {
       "tags": ["unique", "cavalry", "gunpowder"],
       "health": 3,
       "armor": [4, 4, 7, 0],
+      "steps": 4,
       "attacks": [
         {
           "hits": 1,
-          "actionpoints": 1,
+          "actionpoints": 0,
           "bonuses": [
             {
               "bonus": [null, 3, null, null]
@@ -763,7 +843,7 @@ let slowData = {
       "name": "forging",
       "type": "blacksmith",
       "target": {
-        "tags": [["melee"]]
+        "tags": [["slash"]]
       },
       "bonus": {
         "attack": [1, 1, 1, 0]

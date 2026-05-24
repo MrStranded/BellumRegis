@@ -140,7 +140,7 @@ function createRow(attacker, data) {
 
     for (let d of damages) {
       let damageText = document.createElement("div");
-      let actionpointInvestment = d.actionpoints != 1 ? " / " + d.actionpoints : "";
+      let actionpointInvestment = d.actionpoints > 1 ? " / " + d.actionpoints : "";
       damageText.textContent = d.damage + actionpointInvestment;//getDamageString(damages);
       attack.appendChild(damageText);
     }

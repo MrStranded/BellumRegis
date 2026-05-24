@@ -1,0 +1,11 @@
+part I
+
+Baumgarten kills Wolfenschiessen because he wanted to rape Baumgarten's wife.
+B. then flees from his homestead to the shore of the Vierwaldstättersee, where he is saved by Tell.
+
+Objective I : Kill Wolfenschiessen
+Objective II : Run to the fisherhuts where he finds Tell and is saved
+- (no) Objective III : Transport Baumgarten over the lake to ?
+
+Win condition: Reach Tell alive
+Lose condition: Baumgarten dies

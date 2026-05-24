@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bellum Regis – Damage Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Bellum Regis · Damage Calculator</h1>
+  <div class="page-rule">✦</div>
+
+  <div class="layout">
+
+    <div class="side-panel">
+      <div class="selector">
+        <label for="attacker">Attacker</label>
+        <select id="attacker"></select>
+      </div>
+      <div id="attacker-stats" class="card stats-card"></div>
+    </div>
+
+    <div class="center-panel">
+      <div id="result"></div>
+    </div>
+
+    <div class="side-panel">
+      <div class="selector">
+        <label for="defender">Defender</label>
+        <select id="defender"></select>
+      </div>
+      <div id="defender-stats" class="card stats-card"></div>
+    </div>
+
+  </div>
+
+  <div class="overview-btns">
+    <button class="ov-btn" id="btn-attacker-overview">Attacker vs all</button>
+    <button class="ov-btn" id="btn-defender-overview">Defender vs all</button>
+  </div>
+
+  <div id="overview"></div>
+
+  <script src="../Calculator/Calculator/js/data/slow.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/components/stats-panel.js"></script>
+  <script src="js/components/result-card.js"></script>
+  <script src="js/components/overview.js"></script>
+  <script src="js/ui.js"></script>
+
+</body>
+</html>

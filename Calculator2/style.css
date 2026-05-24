@@ -1,0 +1,453 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Atmosphere: dungeon torch-light, no repeating patterns ── */
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.2rem;
+  background-color: #131009;
+  background-image:
+    radial-gradient(ellipse 65% 55% at 12% 22%,  rgba(44, 30, 12, 0.85) 0%, transparent 100%),
+    radial-gradient(ellipse 45% 65% at 88% 72%,  rgba(38, 24, 8,  0.70) 0%, transparent 100%),
+    radial-gradient(ellipse 90% 35% at 55% 100%, rgba(28, 18, 6,  0.55) 0%, transparent 100%),
+    radial-gradient(ellipse 30% 40% at 70% 10%,  rgba(50, 34, 14, 0.40) 0%, transparent 100%);
+  color: #ece0c0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.25rem;
+}
+
+/* ── Page title — gold, the single exception ── */
+
+h1 {
+  font-family: 'Cinzel', 'Times New Roman', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #d4aa50;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.9),
+    0 0  32px rgba(180, 130, 50, 0.25);
+}
+
+h1::before { content: '⚔\00a0'; opacity: 0.6; }
+h1::after  { content: '\00a0⚔'; opacity: 0.6; }
+
+/* Ornamental rule — silver/iron, peak off-centre */
+.page-rule {
+  width: 380px;
+  height: 18px;
+  margin: 0 auto 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: #707080;
+  font-size: 0.88rem;
+}
+.page-rule::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #505060 35%, #b0b0c0 70%, #909098 100%);
+}
+.page-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #909098 0%, #b0b0c0 30%, #505060 65%, transparent 100%);
+}
+
+/* ── Three-column layout ── */
+
+.layout {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 920px;
+}
+
+.side-panel {
+  flex: 0 0 208px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.side-panel:first-child { transform: rotate(0.25deg);  transform-origin: top center; }
+.side-panel:last-child  { transform: rotate(-0.18deg); transform-origin: top center; }
+
+.center-panel {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 450px;
+}
+
+@media (max-width: 680px) {
+  .layout { flex-direction: column; align-items: center; }
+  .side-panel { flex: none; width: 100%; max-width: 450px; transform: none; }
+}
+
+/* ── Dropdown ── */
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a07850;
+  padding-left: 0.15rem;
+}
+
+select {
+  width: 100%;
+  background-color: #211608;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23908070' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      94deg,
+      transparent 0px, transparent 21px,
+      rgba(0, 0, 0, 0.07) 21px, rgba(0, 0, 0, 0.07) 23px,
+      transparent 23px, transparent 41px,
+      rgba(0, 0, 0, 0.04) 41px, rgba(0, 0, 0, 0.04) 42px
+    ),
+    linear-gradient(178deg, #281c0a 0%, #1c1206 100%);
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-position: right 0.7rem center, 0 0, 0 0;
+  color: #ece0c0;
+  /* stone borders: lighter top-left, darker bottom-right */
+  border-width: 2px 1px 1px 2px;
+  border-style: solid;
+  border-color: #686870 #282830 #222228 #686870;
+  border-radius: 2px 3px 2px 1px;
+  padding: 0.7rem 2.2rem 0.7rem 1rem;
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.05rem;
+  cursor: pointer;
+  appearance: none;
+  box-shadow:
+    inset 2px 2px 0 rgba(180, 180, 210, 0.08),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.5),
+    2px 3px 8px rgba(0, 0, 0, 0.55);
+  transition: border-color 0.15s;
+}
+select:focus { outline: none; border-color: #a0a0b8; }
+
+/* ── Shared card shell — wood planks in a stone frame ── */
+
+.card {
+  background-color: #211608;
+  background-image:
+    repeating-linear-gradient(
+      93deg,
+      transparent 0px, transparent 19px,
+      rgba(0, 0, 0, 0.08) 19px, rgba(0, 0, 0, 0.08) 21px,
+      transparent 21px, transparent 36px,
+      rgba(0, 0, 0, 0.04) 36px, rgba(0, 0, 0, 0.04) 37px
+    ),
+    linear-gradient(172deg, #2c1e0c 0%, #1e1408 55%, #261a0a 100%);
+  /* stone-frame borders */
+  border-width: 2px 1px 1px 2px;
+  border-style: solid;
+  border-color: #686870 #282830 #222228 #686870;
+  border-radius: 2px 4px 2px 3px;
+  overflow: hidden;
+  box-shadow:
+    inset 2px 2px 0 rgba(180, 180, 210, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    4px 5px 18px rgba(0, 0, 0, 0.68),
+    1px 2px 0   rgba(0, 0, 0, 0.35);
+}
+
+/* Silver/iron cap — hammered metal bar across the top (result card only, not side-panel stats) */
+.side-panel .card::before { display: none; }
+
+.card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg,
+    #1e1e24  0%,
+    #505060 12%,
+    #a8a8bc 35%,
+    #d8d8e8 50%,
+    #9898ac 66%,
+    #484858 86%,
+    #1e1e24 100%
+  );
+}
+
+/* ── Stats card ── */
+
+.stats-card {
+  padding: 1.05rem 1.2rem 1.15rem 1.1rem;
+  font-size: 1.05rem;
+}
+
+.sr {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.24rem 0;
+}
+
+.sk { color: #a07850; }
+.sv { color: #ece0c0; font-weight: 500; }
+
+.sdiv {
+  border: none;
+  border-top: 1px solid #3a383e;
+  margin: 0.65rem 0 0.6rem;
+}
+
+.satk {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.22rem 0;
+}
+
+/* Attack type = wood brown */
+.stype { font-weight: 600; font-size: 1.02rem; white-space: nowrap; color: #c4956a; }
+.sinfo { color: #a07850; font-size: 0.97rem; white-space: nowrap; }
+.sno   { color: #705838; font-style: italic; font-size: 1rem; padding-top: 0.2rem; }
+
+/* ── Result card ── */
+
+.summary {
+  display: flex;
+  padding: 1.5rem 1.65rem 1.4rem 1.55rem;
+}
+
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+}
+
+.stat + .stat {
+  border-left: 1px solid #3a383e;
+  padding-left: 1.55rem;
+}
+
+.lbl {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #909098;
+}
+
+/* Big numbers = bright warm ivory — max contrast on the dark wood */
+.val {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #f0e4c8;
+  line-height: 1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+.attacks-detail {
+  border-top: 1px solid #3a383e;
+  padding: 0.9rem 1.55rem 0.95rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+}
+
+.atk {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.04rem;
+  color: #907050;
+}
+/* Damage values in attacks list = warm brown */
+.atk span:last-child { color: #c09060; font-weight: 500; }
+
+/* ── Chart ── */
+
+.chart-section {
+  border-top: 1px solid #3a383e;
+  padding: 1.1rem 1.25rem 0.95rem 1.15rem;
+}
+
+.chart-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #666672;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Empty / no-damage ── */
+
+.no-damage {
+  color: #705838;
+  font-style: italic;
+  text-align: center;
+  padding: 1.75rem 1rem;
+  font-size: 1.1rem;
+}
+
+/* ── Overview buttons — carved stone look ── */
+
+.overview-btns {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 2.1rem;
+}
+
+.ov-btn {
+  background: linear-gradient(178deg, #1e1c24 0%, #161418 100%);
+  color: #909098;
+  border-width: 2px 1px 1px 2px;
+  border-style: solid;
+  border-color: #606068 #242428 #1e1e22 #606068;
+  border-radius: 2px 3px 1px 2px;
+  padding: 0.65rem 1.45rem 0.6rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow:
+    inset 1px 1px 0 rgba(180, 180, 210, 0.08),
+    2px 3px 8px rgba(0, 0, 0, 0.55);
+  transition: border-color 0.15s, color 0.15s;
+}
+/* Hover/active warm up to brown */
+.ov-btn:hover  { border-color: #c4956a; color: #c4956a; }
+.ov-btn.active {
+  border-color: #c4956a;
+  color: #c4956a;
+  background: linear-gradient(178deg, #261c10 0%, #1c140a 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(200, 150, 100, 0.15),
+    2px 3px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Overview panel ── */
+
+#overview {
+  width: 100%;
+  max-width: 920px;
+  margin-top: 1.5rem;
+}
+
+.ov-panel {
+  background-color: #100c04;
+  background-image:
+    repeating-linear-gradient(
+      93deg,
+      transparent 0px, transparent 19px,
+      rgba(0, 0, 0, 0.12) 19px, rgba(0, 0, 0, 0.12) 21px,
+      transparent 21px, transparent 36px,
+      rgba(0, 0, 0, 0.06) 36px, rgba(0, 0, 0, 0.06) 37px
+    ),
+    linear-gradient(172deg, #181008 0%, #100c04 55%, #140e06 100%);
+  border-width: 2px 1px 1px 2px;
+  border-style: solid;
+  border-color: #686870 #282830 #222228 #686870;
+  border-radius: 3px 2px 3px 1px;
+  overflow: hidden;
+  box-shadow:
+    inset 2px 2px 0 rgba(180, 180, 210, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55),
+    4px 5px 18px rgba(0, 0, 0, 0.68);
+}
+.ov-panel::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg,
+    #1e1e24  0%,
+    #505060 12%,
+    #a8a8bc 35%,
+    #d8d8e8 50%,
+    #9898ac 66%,
+    #484858 86%,
+    #1e1e24 100%
+  );
+}
+
+.ov-header {
+  padding: 0.8rem 1.3rem 0.75rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #a07850;
+  border-bottom: 1px solid #3a383e;
+}
+/* Fleur-de-lis in stone gray */
+.ov-header::before { content: '⚜\00a0'; color: #666672; opacity: 0.8; }
+.ov-header::after  { content: '\00a0⚜'; color: #666672; opacity: 0.8; }
+
+.ov-row {
+  display: grid;
+  grid-template-columns: 172px 1fr 62px 50px;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.42rem 1.3rem;
+  border-bottom: 1px solid #26231a;
+  font-size: 1.03rem;
+}
+.ov-row:last-child { border-bottom: none; }
+.ov-row:nth-child(odd) { background: rgba(255, 200, 80, 0.018); }
+
+.ov-name  { color: #c8a870; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Damage = warm brown */
+.ov-dmg   { color: #c09060; font-weight: 500; text-align: right; }
+/* Turns = stone gray */
+.ov-turns { color: #808090; font-size: 0.94rem; text-align: right; }
+
+.ov-col-header { border-bottom: 1px solid #3a383e; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+.ov-col-header .ov-name,
+.ov-col-header .ov-dmg,
+.ov-col-header .ov-turns {
+  font-family: 'Cinzel', serif;
+  color: #666672;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ov-sortable { cursor: pointer; user-select: none; }
+/* Hover on sort headers = silver */
+.ov-sortable:hover { color: #c0c0cc !important; }
+
+/* Sort arrows = silver */
+.ov-arrow          { font-size: 0.65rem; margin-left: 0.25rem; color: #a8a8bc; }
+.ov-arrow.inactive { color: #343440; }
+
+.ov-track {
+  display: block;
+  height: 7px;
+  background: #0e0a05;
+  border-radius: 1px 0 0 1px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.65);
+}
+
+/* Bar fill = warm brown wood stain */
+.ov-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #6a3808 12%, #b06820 65%, #d4904a 100%);
+  border-radius: 1px 0 0 1px;
+}
