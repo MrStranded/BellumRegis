@@ -88,7 +88,43 @@ Explore
 
 The map is built by adding tiles through the explore action.
 When performing an explore action, choose any of your pieces to explore with. Going from this piece, select an unexplored tile within exploration range.
-Determine which type this tile belongs to. Reveal a map card and construct the tile of the corresponding type. You may now place this tile rotated according to your decision.
-Exception: River tiles (R) have to be rotated in a way, that its water connects to existing water, if possible.
+Determine which type this tile belongs to. Reveal a map card and construct the tile of the corresponding type. You may now place this tile rotated how you wish.
+Exception: River tiles (R) have to be rotated in a way, that the river connects to existing water, if possible.
 
-If the exploration range is not explicitly defined, it is the greater value of the pieces walking or shooting range.
+If the exploration range is not explicitly defined, it is the greater value of the piece's walking or shooting range.
+
+Move
+
+Move the unit by the indicated number of steps or fewer. The unit has to end its movement on a free slot or in a friendly building with free garrison space.
+Units may move over other friendly pieces. The steps are still counted.
+Enemy pieces block the movement.
+Units may move over one neutral piece.
+
+Most units are restricted by what type of terrain they may move over. Terrain is distinguished as either land or water.
+
+Land
+Most units move across land and may not step onto water slots. But it is allowed step over buildings in the water and into ships with garrison space.
+
+Water
+Ships move on the water and may not move over land slots. They may move under bridges but may not end their movement under a bridge. Bridges are not considered a neutral piece but a free space.
+
+Flying
+Units that can fly can move over any pieces. Their movement is not restricted by any obstacles.
+Some flying units may not end their movement on a water slot, while others can. This is defined by the modifier on the fly action.
+
+Garrison:
+Entering and exiting a building are each considered one step.
+
+Build
+
+Attack
+
+Gather
+
+Recruit
+
+Research
+
+Heal
+
+Convert
